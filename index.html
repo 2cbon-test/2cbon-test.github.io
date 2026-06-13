@@ -5,53 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2cbon | لإنتاج الميديا والحلول الإبداعية</title>
     <style>
+        /* الأساسيات والتحسينات العامة */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
+            background-color: #0a0a0a;
             color: #ffffff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            overflow: hidden;
+            line-height: 1.6;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.03);
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 1. الهيدر وقائمة التنقل */
+        header {
+            background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
-            width: 90%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .logo-text {
-            font-size: 3rem;
+        .logo {
+            font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             background: linear-gradient(45deg, #ff3366, #ff9933);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
         }
-        h1 {
-            font-size: 1.8rem;
-            margin: 15px 0 10px 0;
-            font-weight: 600;
-            color: #ffffff;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
         }
-        p {
+        nav ul li a {
+            font-size: 1rem;
             color: #b3b3b3;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        nav ul li a:hover {
+            color: #ff3366;
+        }
+
+        /* 2. القسم الترحيبي (Hero Section) */
+        .hero {
+            padding: 180px 5% 100px 5%;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .badge {
             display: inline-block;
@@ -61,19 +74,255 @@
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 1px solid rgba(255, 51, 102, 0.3);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .hero p {
+            color: #b3b3b3;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* أقسام المحتوى المشتركة */
+        section {
+            padding: 80px 5%;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ff3366;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* 3. شبكة معرض الأعمال والصور (Portfolio Grid) */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .portfolio-item {
+            background: #141414;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            cursor: pointer;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            border-color: #ff3366;
+            box-shadow: 0 15px 30px rgba(255, 51, 102, 0.1);
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 220px;
+            background: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .portfolio-info {
+            padding: 20px;
+        }
+        .portfolio-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        .portfolio-info p {
+            color: #b3b3b3;
+            font-size: 0.95rem;
+        }
+
+        /* 4. قسم الخدمات (Services) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .service-card:hover {
+            background: rgba(255, 51, 102, 0.05);
+            border-color: rgba(255, 51, 102, 0.3);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ff3366;
+        }
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .service-card p {
+            color: #b3b3b3;
+            font-size: 0.95rem;
+        }
+
+        /* 5. الفوتر (Footer) */
+        footer {
+            background: #050505;
+            padding: 40px 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: #777;
+            font-size: 0.95rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .footer-links a {
+            margin: 0 15px;
+            color: #b3b3b3;
+        }
+        .footer-links a:hover {
+            color: #ff3366;
+        }
+
+        /* تحسينات الشاشات الصغيرة والهواتف */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav ul { gap: 15px; }
+            .hero h1 { font-size: 2.2rem; }
+            .footer-content { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo-text">2cbon</div>
-        <div><span class="badge">Media Production</span></div>
-        <h1>مرحباً بك في عالم الإنتاج الإبداعي</h1>
-        <p>نحن نصنع القصص البصرية ونحول الأفكار إلى واقع سينمائي مبهر. تواصل الآن مع مساعدنا الذكي لطلب الاستشارات، تفاصيل الإنتاج، أو مناقشة مشروعك القادم فوراً.</p>
+    <!-- 1. الهيدر وقائمة التنقل -->
+    <header>
+        <div class="logo">2cbon</div>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#portfolio">أعمالنا</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. القسم الترحيبي (Hero Section) -->
+    <div class="hero">
+        <div class="badge">الجيل القادم من الإنتاج الفني</div>
+        <h1>نصنع ميديا تترك أثراً</h1>
+        <p>مرحباً بك في استوديو 2cbon الإبداعي. نحن نحول الأفكار والقصص إلى محتوى مرئي وسينمائي رائد يخدم علامتك التجارية بأعلى جودة احترافية.</p>
     </div>
+
+    <!-- 3. شبكة معرض الأعمال والصور (Portfolio) -->
+    <section id="portfolio">
+        <h2>معرض أعمالنا الإبداعية</h2>
+        <div class="portfolio-grid">
+            
+            <!-- العمل الأول -->
+            <div class="portfolio-item">
+                <div class="image-placeholder">
+                    🎬 [مكان مخصص لصورة مشروع إعلاني]
+                </div>
+                <div class="portfolio-info">
+                    <h3>الحملات الإعلانية السينمائية</h3>
+                    <p>إنتاج وتنفيذ إعلانات تجارية تعتمد على الهوية البصرية الفخمة وجاذبية القصة.</p>
+                </div>
+            </div>
+
+            <!-- العمل الثاني -->
+            <div class="portfolio-item">
+                <div class="image-placeholder">
+                    📸 [مكان مخصص لصورة جلسة تصوير منتجات]
+                </div>
+                <div class="portfolio-info">
+                    <h3>تصوير المنتجات وتطوير الهوية</h3>
+                    <p>جلسات تصوير سينمائية فائقة الدقة والواقعية تبرز تفاصيل منتجك بشكل فاخر.</p>
+                </div>
+            </div>
+
+            <!-- العمل الثالث -->
+            <div class="portfolio-item">
+                <div class="image-placeholder">
+                    🎥 [مكان مخصص لصورة إنتاج فيديو فني]
+                </div>
+                <div class="portfolio-info">
+                    <h3>صناعة وتطوير الستوري بورد</h3>
+                    <p>تجهيز السيناريوهات البصرية المتقنة ورسم ملامح الفيديوهات الإعلانية قبل تصويرها.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. قسم الخدمات (Services) -->
+    <section id="services" style="background: #0d0d0d;">
+        <h2>ماذا نقدم في 2cbon؟</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">🎥</div>
+                <h3>الإنتاج المرئي والسينمائي</h3>
+                <p>تصوير وإخراج الفيديوهات التجارية والوثائقية بأحدث الكاميرات والمعدات.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>التوجيه الفني والابتكاري</h3>
+                <p>بناء الشبكات والتصاميم الهيكلية الاحترافية المتناسقة لتبهر عملائك.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎙️</div>
+                <h3>تكامل الذكاء الاصطناعي</h3>
+                <p>نوفر حلولاً تفاعلية صوتية متطورة لعملائنا لخدمتهم على مدار الساعة بذكاء تام.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. الفوتر (Footer) -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="logo" style="font-size: 1.6rem;">2cbon</div>
+            <div class="footer-links">
+                <a href="#">الخصوصية</a>
+                <a href="#">الشروط والأحكام</a>
+                <a href="#">تواصل معنا</a>
+            </div>
+        </div>
+        <p>جميع الحقوق محفوظة © 2026 لشركة 2cbon لإنتاج الميديا.</p>
+    </footer>
 
     <!-- كود الـ Widget المدمج الخاص بـ ElevenLabs -->
     <elevenlabs-convai agent-id="agent_7701kv0rzr4degcspwkke552865a"></elevenlabs-convai>

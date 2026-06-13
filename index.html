@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2cbon | لإنتاج الميديا والحلول الإبداعية</title>
+    <title>2cbon | لإنتاج Média والحلول الإبداعية</title>
     <style>
         /* الأساسيات والتحسينات العامة */
         * {
@@ -213,12 +213,42 @@
             color: #ff3366;
         }
 
+        /* 6. زر المساعد الصوتي العائم الجديد (Floating AI Button) */
+        .ai-floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #ff3366, #ff9933);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(255, 51, 102, 0.4);
+            z-index: 9999;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+        .ai-floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(255, 51, 102, 0.6);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 51, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0); }
+        }
+
         /* تحسينات الشاشات الصغيرة والهواتف */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; text-align: center; }
             nav ul { gap: 15px; }
             .hero h1 { font-size: 2.2rem; }
             .footer-content { flex-direction: column; }
+            .ai-floating-btn { bottom: 20px; right: 20px; width: 60px; height: 60px; font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -249,33 +279,24 @@
         <h2>معرض أعمالنا الإبداعية</h2>
         <div class="portfolio-grid">
             
-            <!-- العمل الأول -->
             <div class="portfolio-item">
-                <div class="image-placeholder">
-                    🎬 [مكان مخصص لصورة مشروع إعلاني]
-                </div>
+                <div class="image-placeholder">🎬 [مكان مخصص لصورة مشروع إعلاني]</div>
                 <div class="portfolio-info">
                     <h3>الحملات الإعلانية السينمائية</h3>
                     <p>إنتاج وتنفيذ إعلانات تجارية تعتمد على الهوية البصرية الفخمة وجاذبية القصة.</p>
                 </div>
             </div>
 
-            <!-- العمل الثاني -->
             <div class="portfolio-item">
-                <div class="image-placeholder">
-                    📸 [مكان مخصص لصورة جلسة تصوير منتجات]
-                </div>
+                <div class="image-placeholder">📸 [مكان مخصص لصورة جلسة تصوير منتجات]</div>
                 <div class="portfolio-info">
                     <h3>تصوير المنتجات وتطوير الهوية</h3>
                     <p>جلسات تصوير سينمائية فائقة الدقة والواقعية تبرز تفاصيل منتجك بشكل فاخر.</p>
                 </div>
             </div>
 
-            <!-- العمل الثالث -->
             <div class="portfolio-item">
-                <div class="image-placeholder">
-                    🎥 [مكان مخصص لصورة إنتاج فيديو فني]
-                </div>
+                <div class="image-placeholder">🎥 [مكان مخصص لصورة إنتاج فيديو فني]</div>
                 <div class="portfolio-info">
                     <h3>صناعة وتطوير الستوري بورد</h3>
                     <p>تجهيز السيناريوهات البصرية المتقنة ورسم ملامح الفيديوهات الإعلانية قبل تصويرها.</p>
@@ -324,9 +345,10 @@
         <p>جميع الحقوق محفوظة © 2026 لشركة 2cbon لإنتاج الميديا.</p>
     </footer>
 
-    <!-- كود الـ Widget المدمج الخاص بـ ElevenLabs -->
-    <elevenlabs-convai agent-id="agent_7701kv0rzr4degcspwkke552865a"></elevenlabs-convai>
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <!-- 6. الدائرة المضيئة المحدثة بالرابط المباشر تفتح في صفحة جديدة وبأعلى دقة وثبات لغوي -->
+    <a href="https://elevenlabs.io/app/talk-to?agent_id=agent_7701kv0rzr4degcspwkke552865a&branch_id=agtbrch_9101kv0s2dpgf0evtdme4tzqvdyv" target="_blank" class="ai-floating-btn" title="تحدث مع مساعدنا الذكي">
+        🎙️
+    </a>
 
 </body>
 </html>

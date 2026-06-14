@@ -101,8 +101,27 @@ section{padding:7rem 3rem;position:relative;}
 #stats{background:var(--surface);border-top:1px solid var(--border);padding:5rem 3rem;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
 .stat{text-align:center;padding:2rem;}
-.stat-n{font-family:'Space Grotesk',sans-serif;font-size:3.5rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem;}
-.stat-l{color:var(--muted2);font-size:.88rem;}
+.stat-n" data-target="50">0</div>
+  <div class="stat-l">مشروع منجز</div>
+      </div>
+      <div class="stat reveal d1">
+        <div class="stat-n" data-target="30">0</div>
+        <div class="stat-l">عميل سعيد</div>
+      </div>
+      <div class="stat reveal d2">
+        <div class="stat-n" data-target="3">0</div>
+        <div class="stat-l">سنوات خبرة</div>
+      </div>
+      <div class="stat reveal d3">
+        <div class="stat-n" data-target="2">0</div>
+        <div class="stat-l">% الفارق دايمًا</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 #process{background:var(--bg);}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5rem;position:relative;}
 .steps::before{content:'';position:absolute;top:24px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--border) 20%,var(--gold-dim) 50%,var(--border) 80%,transparent);}
@@ -388,7 +407,7 @@ window.addEventListener('scroll', () => {
   if(navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// --- CANVAS PARTICLES (Optimized Performance) ---
+// --- CANVAS MULTI-SHAPE PARTICLES (Optimized) ---
 const canvas = document.getElementById('canvas-bg');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -401,27 +420,31 @@ if (canvas) {
   window.addEventListener('resize', resize);
 
   const REPEL_R = 160, REPEL_F = 0.09, CONNECT_R = 140, MOUSE_LINE_R = 180;
-  const pts = Array.from({length: 60}, () => ({
+  const shapeTypes = ['circle', 'square', 'triangle', 'plus'];
+  
+  // Increased elements density (100 multi-shapes)
+  const pts = Array.from({length: 100}, () => ({
     x: Math.random() * window.innerWidth, 
     y: Math.random() * window.innerHeight,
     vx: (Math.random() - 0.5) * 0.4, 
     vy: (Math.random() - 0.5) * 0.4,
-    r: Math.random() * 1.4 + 0.5, 
-    o: Math.random() * 0.3 + 0.08
+    r: Math.random() * 2.2 + 1.2, 
+    o: Math.random() * 0.35 + 0.08,
+    shape: shapeTypes[Math.floor(Math.random() * shapeTypes.length)]
   }));
 
   let ripples = [];
   window.addEventListener('click', e => {
-    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('elevenlabs-convai')) return;
     ripples.push({ x: e.clientX, y: e.clientY, r: 0, alpha: 0.7 });
   });
 
   function draw(){
     ctx.clearRect(0, 0, W, H);
 
-    // 1. Batching Background Lines (BIG PERFORMANCE BOOST)
+    // 1. Interactive Connections (Lines)
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(201, 168, 76, 0.04)";
+    ctx.strokeStyle = "rgba(201, 168, 76, 0.03)";
     ctx.lineWidth = 0.5;
     for(let i = 0; i < pts.length; i++){
       for(let j = i + 1; j < pts.length; j++){
@@ -436,7 +459,7 @@ if (canvas) {
     }
     ctx.stroke();
 
-    // 2. Interaction Lines with Mouse
+    // 2. Mouse Tracking Lines
     pts.forEach(p => {
       const dx = p.x - mx;
       const dy = p.y - my;
@@ -444,15 +467,15 @@ if (canvas) {
       if(d < MOUSE_LINE_R){
         const t = 1 - d / MOUSE_LINE_R;
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(201,168,76,${t * 0.4})`;
-        ctx.lineWidth = t * 1.5;
+        ctx.strokeStyle = `rgba(201,168,76,${t * 0.35})`;
+        ctx.lineWidth = t * 1.2;
         ctx.moveTo(mx, my);
         ctx.lineTo(p.x, p.y);
         ctx.stroke();
       }
     });
 
-    // 3. Ripples
+    // 3. Ripples Triggered by Click
     ripples = ripples.filter(rp => rp.r < 260);
     ripples.forEach(rp => {
       const a = rp.alpha * (1 - rp.r / 260);
@@ -464,7 +487,7 @@ if (canvas) {
       rp.r += 5;
     });
 
-    // 4. Update & Draw Particles
+    // 4. Update & Render Custom Shapes
     pts.forEach(p => {
       const dx = p.x - mx;
       const dy = p.y - my;
@@ -493,13 +516,34 @@ if (canvas) {
 
       const near = d < REPEL_R;
       const boost = near ? (1 - d / REPEL_R) : 0;
-      const drawR = p.r + boost * 2;
+      const drawR = p.r + boost * 3;
       const drawO = Math.min(p.o + boost * 0.5, 1);
 
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, drawR, 0, Math.PI * 2);
+      ctx.save();
       ctx.fillStyle = `rgba(201,168,76,${drawO})`;
-      ctx.fill();
+      ctx.strokeStyle = `rgba(201,168,76,${drawO})`;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+
+      // Render shapes morph dynamically based on custom attributes
+      if (p.shape === 'circle') {
+        ctx.arc(p.x, p.y, drawR, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (p.shape === 'square') {
+        ctx.rect(p.x - drawR, p.y - drawR, drawR * 1.8, drawR * 1.8);
+        ctx.fill();
+      } else if (p.shape === 'triangle') {
+        ctx.moveTo(p.x, p.y - drawR);
+        ctx.lineTo(p.x + drawR, p.y + drawR);
+        ctx.lineTo(p.x - drawR, p.y + drawR);
+        ctx.closePath();
+        ctx.fill();
+      } else if (p.shape === 'plus') {
+        ctx.moveTo(p.x - drawR, p.y); ctx.lineTo(p.x + drawR, p.y);
+        ctx.moveTo(p.x, p.y - drawR); ctx.lineTo(p.x, p.y + drawR);
+        ctx.stroke();
+      }
+      ctx.restore();
 
       p.x += p.vx; 
       p.y += p.vy;
@@ -601,5 +645,9 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 </script>
+
+<elevenlabs-convai agent-id="agent_7701kv0rzr4degcspwkke552865a"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
 </body>
 </html>

@@ -27,7 +27,7 @@ body{
   color:var(--text);
   font-family:'Cairo','Space Grotesk',sans-serif;
   overflow-x:hidden;
-  cursor:none;
+  cursor:none; /* إخفاء الماوس الافتراضي عن الموقع ككل */
 }
 .cursor{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:transform .15s,background .2s;}
 .cursor-ring{width:32px;height:32px;border:1px solid var(--gold);opacity:.4;border-radius:50%;position:fixed;z-index:9998;pointer-events:none;transform:translate(-50%,-50%);transition:left .1s,top .1s,opacity .3s,transform .3s;}
@@ -124,7 +124,7 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 
 /* --- ELEVENLABS LEAD FORM SYSTEM --- */
 .ai-trigger-btn {
-  position:fixed;bottom:2rem;right:2rem;z-index:999;
+  position:fixed;bottom:2rem;left:2rem;z-index:999;
   background:var(--surface);border:1px solid var(--gold);color:var(--gold);
   padding:.85rem 1.5rem;font-family:'Cairo',sans-serif;font-size:.88rem;font-weight:700;
   display:flex;align-items:center;gap:.6rem;box-shadow:0 10px 30px rgba(0,0,0,.5);
@@ -133,18 +133,102 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 .ai-trigger-btn:hover { background:var(--gold);color:var(--bg);transform:translateY(-3px);box-shadow:0 15px 35px rgba(201,168,76,.2); }
 .ai-trigger-btn span { font-size:1.1rem; animation: pulse 1.5s infinite; }
 
+/* --- 🛸 نظام الأفاتار الطائر والمتحرك والمتفاعل --- */
+.avatar-container {
+  position: fixed;
+  bottom: 6.5rem;
+  left: 3.5rem;
+  z-index: 998;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  animation: avatarFloat 4s ease-in-out infinite;
+}
+.cyber-avatar {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 35% 35%, var(--surface2), var(--bg));
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.2), inset 0 0 10px rgba(201, 168, 76, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+.avatar-eyes { display: flex; gap: 12px; transition: transform 0.3s ease; }
+.avatar-eye {
+  width: 6px;
+  height: 8px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold);
+  transition: all 0.2s ease;
+  animation: avatarBlink 4s infinite;
+}
+.avatar-mouth {
+  width: 14px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 5px rgba(201, 168, 76, 0.5);
+}
+.avatar-waves {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.avatar-container:hover .cyber-avatar {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+  transform: scale(1.05);
+}
+.avatar-container:hover .avatar-eye { height: 6px; background: #fff; }
+.avatar-container:hover .avatar-mouth { width: 18px; height: 5px; border-radius: 0 0 10px 10px; }
+
+.avatar-container.talking .avatar-eye { height: 6px; animation: none; }
+.avatar-container.talking .avatar-mouth {
+  animation: avatarSpeak 0.35s ease-in-out infinite alternate;
+  background: var(--gold-light);
+  box-shadow: 0 0 10px var(--gold-light);
+}
+.avatar-container.talking .avatar-waves { opacity: 1; animation: avatarWavePulse 1.2s linear infinite; }
+
+@keyframes avatarFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(3deg); } }
+@keyframes avatarBlink { 0%, 45%, 47%, 100% { transform: scaleY(1); } 46% { transform: scaleY(0.1); } }
+@keyframes avatarSpeak { 0% { height: 2px; width: 12px; border-radius: 2px; } 100% { height: 12px; width: 12px; border-radius: 50%; } }
+@keyframes avatarWavePulse { 0% { transform: scale(0.8); opacity: 0.8; } 100% { transform: scale(1.4); opacity: 0; } }
+
+/* --- 📋 تعديل وتأمين ظهور ماوس المتصفح فوق الفورم وبوكس البيانات --- */
 .lead-modal-overlay {
   position:fixed;inset:0;background:rgba(6,6,6,.85);backdrop-filter:blur(15px);
   z-index:10000;display:flex;align-items:center;justify-content:center;
   opacity:0;pointer-events:none;transition:opacity .4s ease;
+  cursor: default; /* إرجاع الماوس السهم الطبيعي عند الفتح */
 }
 .lead-modal-overlay.active { opacity:1; pointer-events:auto; }
 .lead-modal {
   background:var(--surface);border:1px solid var(--border);padding:3rem 2.5rem;
   max-width:440px;width:100%;position:relative;text-align:right;
+  cursor: default; /* التأكيد على السهم الطبيعي فوق البوكس */
 }
 .lead-modal::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold); }
-.lead-close { position:absolute;top:1.5rem;left:1.5rem;background:none;border:none;color:var(--muted2);font-size:1.2rem;cursor:none; }
+.lead-close { position:absolute;top:1.5rem;left:1.5rem;background:none;border:none;color:var(--muted2);font-size:1.2rem;cursor: pointer; }
 .lead-close:hover { color:var(--gold); }
 .lead-title { font-size:1.5rem;font-weight:800;color:var(--text);margin-bottom:.5rem; }
 .lead-subtitle { font-size:.85rem;color:var(--muted2);margin-bottom:2rem;line-height:1.6; }
@@ -153,10 +237,11 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 .form-group input {
   width:100%;background:var(--surface2);border:1px solid var(--border);
   padding:.85rem 1rem;color:var(--text);font-family:'Cairo',sans-serif;font-size:.9rem;
-  transition:all .3s;outline:none;cursor:auto;
+  transition:all .3s;outline:none;
+  cursor: text; /* تشغيل ماوس الكتابة الاحترافي (I-beam) جوه الانبوت */
 }
 .form-group input:focus { border-color:var(--gold); background:var(--bg); }
-.lead-submit { width:100%; margin-top:1rem; }
+.lead-submit { width:100%; margin-top:1rem; cursor: pointer; }
 
 @keyframes pulse { 0%,100%{opacity:.6;} 50%{opacity:1;} }
 
@@ -176,7 +261,8 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
   .steps::before{display:none;}
   .hero-actions{flex-direction:column;align-items:center;}
   footer{flex-direction:column;gap:1rem;text-align:center;}
-  .ai-trigger-btn { bottom:1.5rem; right:1.5rem; padding:.7rem 1.2rem; font-size:.8rem; }
+  .ai-trigger-btn { bottom:1.5rem; left:1.5rem; padding:.7rem 1.2rem; font-size:.8rem; }
+  .avatar-container { left: 2.2rem; bottom: 5.5rem; transform: scale(0.85); }
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
@@ -380,12 +466,21 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
   <span style="font-family:'Space Grotesk',sans-serif;color:var(--gold-dim);">Adding 2% Always</span>
 </footer>
 
-<!-- زِر المساعد الصوتي البديل من تصميمنا -->
+<div class="avatar-container" id="flyingAvatar">
+  <div class="cyber-avatar">
+    <div class="avatar-eyes">
+      <div class="avatar-eye"></div>
+      <div class="avatar-eye"></div>
+    </div>
+    <div class="avatar-mouth" id="avatarMouth"></div>
+    <div class="avatar-waves"></div>
+  </div>
+</div>
+
 <button class="ai-trigger-btn" id="aiTrigger">
   <span>◈</span> تحدث مع مساعدنا الذكي
 </button>
 
-<!-- نموذج جمع البيانات المميز قبل تفعيل المساعد الصوتي -->
 <div class="lead-modal-overlay" id="leadModal">
   <div class="lead-modal">
     <button class="lead-close" id="closeModal">✕</button>
@@ -410,33 +505,39 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 </div>
 
 <script>
-// --- CURSOR ---
+// --- CURSOR CONTROL SYSTEM ---
 const cur = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
+const leadModalBox = document.querySelector('.lead-modal');
 let mx=0, my=0, rx=0, ry=0;
+let isInsideModal = false;
 
 document.addEventListener('mousemove', e => {
   mx = e.clientX; 
   my = e.clientY;
-  if(cur) {
+  // تحديث مكان الماوس السحري فقط لو كنا بره بوكس البيانات
+  if(cur && !isInsideModal) {
     cur.style.left = mx + 'px';
     cur.style.top = my + 'px';
   }
 });
 
 (function loop(){
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  if(ring) {
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
+  if(!isInsideModal) {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    if(ring) {
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+    }
   }
   requestAnimationFrame(loop);
 })();
 
 function setupCursorEvents() {
-  document.querySelectorAll('a, button, [data-tilt], .lead-close').forEach(el => {
+  document.querySelectorAll('a, button, [data-tilt], .lead-close, .avatar-container').forEach(el => {
     el.addEventListener('mouseenter', () => {
+      if(isInsideModal) return; // تعطيل التأثيرات لو الماوس جوه البوكس
       if(cur) {
         cur.style.transform = 'translate(-50%,-50%) scale(2.5)';
         cur.style.background = 'transparent';
@@ -445,6 +546,7 @@ function setupCursorEvents() {
       if(ring) ring.style.opacity = '0';
     });
     el.addEventListener('mouseleave', () => {
+      if(isInsideModal) return;
       if(cur) {
         cur.style.transform = 'translate(-50%,-50%) scale(1)';
         cur.style.background = 'var(--gold)';
@@ -456,11 +558,19 @@ function setupCursorEvents() {
 }
 setupCursorEvents();
 
-// Hide custom cursor inside active form inputs for fluent typing UX
-document.querySelectorAll('.form-group input').forEach(input => {
-  input.addEventListener('mouseenter', () => { if(cur){cur.style.opacity='0';} if(ring){ring.style.opacity='0';} });
-  input.addEventListener('mouseleave', () => { if(cur){cur.style.opacity='1';} if(ring){ring.style.opacity='0.4';} });
-});
+// 💡 النظام الذكي: إخفاء الماوس السحري تماماً عند دخول بوكس البيانات ليعود ماوس المتصفح الطبيعي
+if (leadModalBox) {
+  leadModalBox.addEventListener('mouseenter', () => {
+    isInsideModal = true;
+    if(cur) cur.style.opacity = '0';
+    if(ring) ring.style.opacity = '0';
+  });
+  leadModalBox.addEventListener('mouseleave', () => {
+    isInsideModal = false;
+    if(cur) cur.style.opacity = '1';
+    if(ring) ring.style.opacity = '0.4';
+  });
+}
 
 // --- NAV SCROLL ---
 const navbar = document.getElementById('navbar');
@@ -483,7 +593,6 @@ if (canvas) {
   const REPEL_R = 160, REPEL_F = 0.09, CONNECT_R = 140, MOUSE_LINE_R = 180;
   const shapeTypes = ['circle', 'square', 'triangle', 'plus'];
   
-  // High-density geometric shapes deployment (100 elements)
   const pts = Array.from({length: 100}, () => ({
     x: Math.random() * window.innerWidth, 
     y: Math.random() * window.innerHeight,
@@ -496,14 +605,13 @@ if (canvas) {
 
   let ripples = [];
   window.addEventListener('click', e => {
-    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.lead-modal') || e.target.closest('elevenlabs-convai')) return;
+    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.lead-modal') || e.target.closest('elevenlabs-convai') || e.target.closest('.avatar-container')) return;
     ripples.push({ x: e.clientX, y: e.clientY, r: 0, alpha: 0.7 });
   });
 
   function draw(){
     ctx.clearRect(0, 0, W, H);
 
-    // 1. Batch Render Connection Vectors
     ctx.beginPath();
     ctx.strokeStyle = "rgba(201, 168, 76, 0.03)";
     ctx.lineWidth = 0.5;
@@ -520,7 +628,6 @@ if (canvas) {
     }
     ctx.stroke();
 
-    // 2. Mouse Engagement Lines
     pts.forEach(p => {
       const dx = p.x - mx;
       const dy = p.y - my;
@@ -536,7 +643,6 @@ if (canvas) {
       }
     });
 
-    // 3. Shockwave Ripples Processing
     ripples = ripples.filter(rp => rp.r < 260);
     ripples.forEach(rp => {
       const a = rp.alpha * (1 - rp.r / 260);
@@ -548,7 +654,6 @@ if (canvas) {
       rp.r += 5;
     });
 
-    // 4. Physics Engine & Render Loops for Geometry
     pts.forEach(p => {
       const dx = p.x - mx;
       const dy = p.y - my;
@@ -705,15 +810,19 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
-// --- ELEVENLABS LEAD-GATE LOGIC ---
+// --- ELEVENLABS LEAD-GATE LOGIC WITH AVATAR INTERACTION ---
 const aiTrigger = document.getElementById('aiTrigger');
+const flyingAvatar = document.getElementById('flyingAvatar');
 const leadModal = document.getElementById('leadModal');
 const closeModal = document.getElementById('closeModal');
 const leadForm = document.getElementById('leadForm');
 
-aiTrigger.addEventListener('click', () => {
+aiTrigger.addEventListener('click', openFormGate);
+flyingAvatar.addEventListener('click', openFormGate);
+
+function openFormGate() {
   leadModal.classList.add('active');
-});
+}
 
 closeModal.addEventListener('click', () => {
   leadModal.classList.remove('active');
@@ -722,29 +831,47 @@ closeModal.addEventListener('click', () => {
 leadForm.addEventListener('submit', (e) => {
   e.preventDefault();
   
-  // Extract inputs data safely
   const name = document.getElementById('clientName').value;
   const phone = document.getElementById('clientPhone').value;
   const company = document.getElementById('clientCompany').value;
   
-  // Log capturing to console (You can change this into a fetch request to Zapier/Make webhook here)
   console.log("New Lead Captured:", { name, phone, company });
 
-  // Hide Modal & Trigger Trigger Button
   leadModal.classList.remove('active');
   aiTrigger.style.display = 'none';
 
-  // Inject Elevenlabs widget elements programmatically after verification
+  flyingAvatar.classList.add('talking');
+
   const el = document.createElement('elevenlabs-convai');
   el.setAttribute('agent-id', 'agent_7701kv0rzr4degcspwkke552865a');
   document.body.appendChild(el);
   
-  // Update hover reactions list manually for new spawned widget button
   setTimeout(() => { setupCursorEvents(); }, 600);
 });
+
+// ميكانيزم تفاعل وانحراف الأفاتار مع اقتراب الماوس
+if (window.innerWidth > 768) {
+  document.addEventListener('mousemove', (e) => {
+    const avatarRect = flyingAvatar.getBoundingClientRect();
+    const avatarX = avatarRect.left + avatarRect.width / 2;
+    const avatarY = avatarRect.top + avatarRect.height / 2;
+    
+    const diffX = e.clientX - avatarX;
+    const diffY = e.clientY - avatarY;
+    const distance = Math.sqrt(diffX * diffX + diffY * diffY);
+    
+    if (distance < 120) {
+      const force = (120 - distance) / 120;
+      const moveX = -(diffX / distance) * force * 25;
+      const moveY = -(diffY / distance) * force * 25;
+      flyingAvatar.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    } else {
+      flyingAvatar.style.transform = `translate(0, 0)`;
+    }
+  });
+}
 </script>
 
-<!-- ElevenLabs Embed core library script -->
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 </body>

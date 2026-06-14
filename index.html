@@ -101,27 +101,8 @@ section{padding:7rem 3rem;position:relative;}
 #stats{background:var(--surface);border-top:1px solid var(--border);padding:5rem 3rem;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
 .stat{text-align:center;padding:2rem;}
-.stat-n" data-target="50">0</div>
-  <div class="stat-l">مشروع منجز</div>
-      </div>
-      <div class="stat reveal d1">
-        <div class="stat-n" data-target="30">0</div>
-        <div class="stat-l">عميل سعيد</div>
-      </div>
-      <div class="stat reveal d2">
-        <div class="stat-n" data-target="3">0</div>
-        <div class="stat-l">سنوات خبرة</div>
-      </div>
-      <div class="stat reveal d3">
-        <div class="stat-n" data-target="2">0</div>
-        <div class="stat-l">% الفارق دايمًا</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
+.stat-n{font-family:'Space Grotesk',sans-serif;font-size:3.5rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem;}
+.stat-l{color:var(--muted2);font-size:.88rem;}
 #process{background:var(--bg);}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5rem;position:relative;}
 .steps::before{content:'';position:absolute;top:24px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--border) 20%,var(--gold-dim) 50%,var(--border) 80%,transparent);}
@@ -140,6 +121,45 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 .reveal.visible{opacity:1;transform:none;}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0;}
+
+/* --- ELEVENLABS LEAD FORM SYSTEM --- */
+.ai-trigger-btn {
+  position:fixed;bottom:2rem;right:2rem;z-index:999;
+  background:var(--surface);border:1px solid var(--gold);color:var(--gold);
+  padding:.85rem 1.5rem;font-family:'Cairo',sans-serif;font-size:.88rem;font-weight:700;
+  display:flex;align-items:center;gap:.6rem;box-shadow:0 10px 30px rgba(0,0,0,.5);
+  transition:all .3s cubic-bezier(.4,0,.2,1);cursor:none;
+}
+.ai-trigger-btn:hover { background:var(--gold);color:var(--bg);transform:translateY(-3px);box-shadow:0 15px 35px rgba(201,168,76,.2); }
+.ai-trigger-btn span { font-size:1.1rem; animation: pulse 1.5s infinite; }
+
+.lead-modal-overlay {
+  position:fixed;inset:0;background:rgba(6,6,6,.85);backdrop-filter:blur(15px);
+  z-index:10000;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .4s ease;
+}
+.lead-modal-overlay.active { opacity:1; pointer-events:auto; }
+.lead-modal {
+  background:var(--surface);border:1px solid var(--border);padding:3rem 2.5rem;
+  max-width:440px;width:100%;position:relative;text-align:right;
+}
+.lead-modal::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold); }
+.lead-close { position:absolute;top:1.5rem;left:1.5rem;background:none;border:none;color:var(--muted2);font-size:1.2rem;cursor:none; }
+.lead-close:hover { color:var(--gold); }
+.lead-title { font-size:1.5rem;font-weight:800;color:var(--text);margin-bottom:.5rem; }
+.lead-subtitle { font-size:.85rem;color:var(--muted2);margin-bottom:2rem;line-height:1.6; }
+.form-group { margin-bottom:1.5rem; text-align:right; }
+.form-group label { display:block;font-size:.82rem;color:var(--gold);margin-bottom:.5rem;font-weight:600; }
+.form-group input {
+  width:100%;background:var(--surface2);border:1px solid var(--border);
+  padding:.85rem 1rem;color:var(--text);font-family:'Cairo',sans-serif;font-size:.9rem;
+  transition:all .3s;outline:none;cursor:auto;
+}
+.form-group input:focus { border-color:var(--gold); background:var(--bg); }
+.lead-submit { width:100%; margin-top:1rem; }
+
+@keyframes pulse { 0%,100%{opacity:.6;} 50%{opacity:1;} }
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
 @keyframes glitch1{0%,88%,100%{transform:none;opacity:0;}90%{transform:translateX(-4px);opacity:.9;}92%{transform:translateX(4px);opacity:0;}95%{transform:translateX(-2px);opacity:.6;}}
 @keyframes glitch2{0%,86%,100%{transform:none;opacity:0;}88%{transform:translateX(4px);opacity:.8;}90%{transform:translateX(-4px);opacity:0;}93%{transform:translateX(2px);opacity:.5;}}
@@ -148,12 +168,15 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
   nav{padding:1rem 1.5rem;}nav.scrolled{padding:.8rem 1.5rem;}
   .nav-links,.nav-cta{display:none;}
   body{cursor:auto;}
+  .cursor,.cursor-ring,.ai-trigger-btn{cursor:auto;}
+  .form-group input,.lead-close{cursor:auto;}
   .cursor,.cursor-ring{display:none;}
   section{padding:4rem 1.5rem;}
   .concept-grid,.services-grid,.steps,.stats-grid{grid-template-columns:1fr;gap:1.5rem;}
   .steps::before{display:none;}
   .hero-actions{flex-direction:column;align-items:center;}
   footer{flex-direction:column;gap:1rem;text-align:center;}
+  .ai-trigger-btn { bottom:1.5rem; right:1.5rem; padding:.7rem 1.2rem; font-size:.8rem; }
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
@@ -341,7 +364,7 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
     <h2 class="cta-t reveal d1">
       محتاج تحوّل<br>
       مادتك الخام<br>
-      <span class="acc">لفولاذ؟</span>
+      <span class="acc">لفولاذ?</span>
     </h2>
     <p class="cta-s reveal d2">خلينا نضيف الـ 2% اللي بيفرّق</p>
     <div class="reveal d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
@@ -356,6 +379,35 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
   <span>© 2026 — كل الحقوق محفوظة</span>
   <span style="font-family:'Space Grotesk',sans-serif;color:var(--gold-dim);">Adding 2% Always</span>
 </footer>
+
+<!-- زِر المساعد الصوتي البديل من تصميمنا -->
+<button class="ai-trigger-btn" id="aiTrigger">
+  <span>◈</span> تحدث مع مساعدنا الذكي
+</button>
+
+<!-- نموذج جمع البيانات المميز قبل تفعيل المساعد الصوتي -->
+<div class="lead-modal-overlay" id="leadModal">
+  <div class="lead-modal">
+    <button class="lead-close" id="closeModal">✕</button>
+    <h3 class="lead-title">تحدث مع الـ AI Assistant</h3>
+    <p class="lead-subtitle">برجاء إدخال بياناتك سريعاً لربطك بالمساعد الصوتي لـ 2Cbon مباشرة</p>
+    <form id="leadForm">
+      <div class="form-group">
+        <label>الاسم بالكامل</label>
+        <input type="text" id="clientName" required placeholder="مثال: أحمد محمد">
+      </div>
+      <div class="form-group">
+        <label>رقم الهاتف / الواتساب</label>
+        <input type="tel" id="clientPhone" required placeholder="مثال: 0100XXXXXXX">
+      </div>
+      <div class="form-group">
+        <label>اسم الشركة / المشروع</label>
+        <input type="text" id="clientCompany" required placeholder="مثال: شركة براند إكس للخدمات">
+      </div>
+      <button type="submit" class="btn-primary lead-submit">تأكيد وبدء الاتصال الصوتي ⚡</button>
+    </form>
+  </div>
+</div>
 
 <script>
 // --- CURSOR ---
@@ -382,23 +434,32 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(loop);
 })();
 
-document.querySelectorAll('a, button, [data-tilt]').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    if(cur) {
-      cur.style.transform = 'translate(-50%,-50%) scale(2.5)';
-      cur.style.background = 'transparent';
-      cur.style.border = '1px solid var(--gold)';
-    }
-    if(ring) ring.style.opacity = '0';
+function setupCursorEvents() {
+  document.querySelectorAll('a, button, [data-tilt], .lead-close').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if(cur) {
+        cur.style.transform = 'translate(-50%,-50%) scale(2.5)';
+        cur.style.background = 'transparent';
+        cur.style.border = '1px solid var(--gold)';
+      }
+      if(ring) ring.style.opacity = '0';
+    });
+    el.addEventListener('mouseleave', () => {
+      if(cur) {
+        cur.style.transform = 'translate(-50%,-50%) scale(1)';
+        cur.style.background = 'var(--gold)';
+        cur.style.border = 'none';
+      }
+      if(ring) ring.style.opacity = '0.4';
+    });
   });
-  el.addEventListener('mouseleave', () => {
-    if(cur) {
-      cur.style.transform = 'translate(-50%,-50%) scale(1)';
-      cur.style.background = 'var(--gold)';
-      cur.style.border = 'none';
-    }
-    if(ring) ring.style.opacity = '0.4';
-  });
+}
+setupCursorEvents();
+
+// Hide custom cursor inside active form inputs for fluent typing UX
+document.querySelectorAll('.form-group input').forEach(input => {
+  input.addEventListener('mouseenter', () => { if(cur){cur.style.opacity='0';} if(ring){ring.style.opacity='0';} });
+  input.addEventListener('mouseleave', () => { if(cur){cur.style.opacity='1';} if(ring){ring.style.opacity='0.4';} });
 });
 
 // --- NAV SCROLL ---
@@ -407,7 +468,7 @@ window.addEventListener('scroll', () => {
   if(navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// --- CANVAS MULTI-SHAPE PARTICLES (Optimized) ---
+// --- CANVAS MULTI-SHAPE PARTICLES (Ultra Optimized) ---
 const canvas = document.getElementById('canvas-bg');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -422,7 +483,7 @@ if (canvas) {
   const REPEL_R = 160, REPEL_F = 0.09, CONNECT_R = 140, MOUSE_LINE_R = 180;
   const shapeTypes = ['circle', 'square', 'triangle', 'plus'];
   
-  // Increased elements density (100 multi-shapes)
+  // High-density geometric shapes deployment (100 elements)
   const pts = Array.from({length: 100}, () => ({
     x: Math.random() * window.innerWidth, 
     y: Math.random() * window.innerHeight,
@@ -435,14 +496,14 @@ if (canvas) {
 
   let ripples = [];
   window.addEventListener('click', e => {
-    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('elevenlabs-convai')) return;
+    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.lead-modal') || e.target.closest('elevenlabs-convai')) return;
     ripples.push({ x: e.clientX, y: e.clientY, r: 0, alpha: 0.7 });
   });
 
   function draw(){
     ctx.clearRect(0, 0, W, H);
 
-    // 1. Interactive Connections (Lines)
+    // 1. Batch Render Connection Vectors
     ctx.beginPath();
     ctx.strokeStyle = "rgba(201, 168, 76, 0.03)";
     ctx.lineWidth = 0.5;
@@ -459,7 +520,7 @@ if (canvas) {
     }
     ctx.stroke();
 
-    // 2. Mouse Tracking Lines
+    // 2. Mouse Engagement Lines
     pts.forEach(p => {
       const dx = p.x - mx;
       const dy = p.y - my;
@@ -475,7 +536,7 @@ if (canvas) {
       }
     });
 
-    // 3. Ripples Triggered by Click
+    // 3. Shockwave Ripples Processing
     ripples = ripples.filter(rp => rp.r < 260);
     ripples.forEach(rp => {
       const a = rp.alpha * (1 - rp.r / 260);
@@ -487,7 +548,7 @@ if (canvas) {
       rp.r += 5;
     });
 
-    // 4. Update & Render Custom Shapes
+    // 4. Physics Engine & Render Loops for Geometry
     pts.forEach(p => {
       const dx = p.x - mx;
       const dy = p.y - my;
@@ -525,7 +586,6 @@ if (canvas) {
       ctx.lineWidth = 1.2;
       ctx.beginPath();
 
-      // Render shapes morph dynamically based on custom attributes
       if (p.shape === 'circle') {
         ctx.arc(p.x, p.y, drawR, 0, Math.PI * 2);
         ctx.fill();
@@ -644,9 +704,47 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
+
+// --- ELEVENLABS LEAD-GATE LOGIC ---
+const aiTrigger = document.getElementById('aiTrigger');
+const leadModal = document.getElementById('leadModal');
+const closeModal = document.getElementById('closeModal');
+const leadForm = document.getElementById('leadForm');
+
+aiTrigger.addEventListener('click', () => {
+  leadModal.classList.add('active');
+});
+
+closeModal.addEventListener('click', () => {
+  leadModal.classList.remove('active');
+});
+
+leadForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  // Extract inputs data safely
+  const name = document.getElementById('clientName').value;
+  const phone = document.getElementById('clientPhone').value;
+  const company = document.getElementById('clientCompany').value;
+  
+  // Log capturing to console (You can change this into a fetch request to Zapier/Make webhook here)
+  console.log("New Lead Captured:", { name, phone, company });
+
+  // Hide Modal & Trigger Trigger Button
+  leadModal.classList.remove('active');
+  aiTrigger.style.display = 'none';
+
+  // Inject Elevenlabs widget elements programmatically after verification
+  const el = document.createElement('elevenlabs-convai');
+  el.setAttribute('agent-id', 'agent_7701kv0rzr4degcspwkke552865a');
+  document.body.appendChild(el);
+  
+  // Update hover reactions list manually for new spawned widget button
+  setTimeout(() => { setupCursorEvents(); }, 600);
+});
 </script>
 
-<elevenlabs-convai agent-id="agent_7701kv0rzr4degcspwkke552865a"></elevenlabs-convai>
+<!-- ElevenLabs Embed core library script -->
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 </body>

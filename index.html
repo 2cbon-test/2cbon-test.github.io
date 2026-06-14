@@ -128,6 +128,8 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 @media(max-width:768px){
   nav{padding:1rem 1.5rem;}nav.scrolled{padding:.8rem 1.5rem;}
   .nav-links,.nav-cta{display:none;}
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
   section{padding:4rem 1.5rem;}
   .concept-grid,.services-grid,.steps,.stats-grid{grid-template-columns:1fr;gap:1.5rem;}
   .steps::before{display:none;}
@@ -165,4 +167,439 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
     <p class="hero-sub">بنضيف الـ 2% اللي بتحوّل الحديد لفولاذ — مونتاج، موشن جرافيك، وAI Video بيستحوذ على الشاشات</p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary">شوف خدماتنا</a>
-      <a href="#cta" class="btn-ghost">ابدأ مش
+      <a href="#cta" class="btn-ghost">ابدأ مشروعك</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>اسكرول</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="concept">
+  <div class="container">
+    <div class="concept-grid">
+      <div>
+        <p class="section-label reveal">// The 2% Formula</p>
+        <h2 class="section-title reveal d1">2% كانوا الفرق بين<br>الحديد والفولاذ</h2>
+        <p style="color:var(--muted2);line-height:1.85;margin-bottom:1.5rem;font-size:.95rem;" class="reveal d2">
+          العلماء اكتشفوا إن إضافة 2% كربون على الحديد بيحوّله لفولاذ لا يُقهر. نفس الفلسفة دي بنطبقها على محتواك. المادة الخام عندك ممتازة، بس محتاجة الـ 2% اللي بتخليها تستحوذ على الشاشات وتفرق في السوق.
+        </p>
+        <div class="ba-grid reveal d3">
+          <div class="ba-box">
+            <div class="ba-tag">قبل</div>
+            <div class="ba-val" style="color:var(--muted2);">مادة خام عادية</div>
+          </div>
+          <div class="ba-box after">
+            <div class="ba-tag">بعد</div>
+            <div class="ba-val">فولاذ لا يُقهر ⚡</div>
+          </div>
+        </div>
+      </div>
+      <div class="carbon-wrap reveal d2" id="carbon-section">
+        <div class="cb-label">// Adding Carbon to your content...</div>
+        <div class="cb-track">
+          <div class="cb-fill" id="cb-fill"></div>
+        </div>
+        <div class="cb-num" id="cb-num">0<span>%</span></div>
+        <div class="cb-status" id="cb-status">Analyzing raw material...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="services">
+  <div class="container">
+    <p class="section-label reveal">// Our Services</p>
+    <h2 class="section-title reveal d1">ما نقدر نضيفه ليك</h2>
+    <p style="color:var(--muted2);max-width:500px;font-size:.92rem;line-height:1.7;margin-bottom:0;" class="reveal d2">تلاتة خدمات، تركيبة واحدة، هدف واحد — إن محتواك يستحوذ</p>
+    <div class="services-grid">
+      <div class="service-card reveal" data-tilt>
+        <div class="s-num">01 — Motion Graphic</div>
+        <div class="s-icon">◈</div>
+        <h3 class="s-title">موشن جرافيك</h3>
+        <p class="s-desc">بنحوّل أفكارك لأنيميشن يتكلم بصوت عالي — تايتلات، إنفوجرافيك، وحركات بتفرق من أول ثانية وتخلي الناس تتوقف</p>
+        <div class="s-tags">
+          <span class="tag">2D Animation</span>
+          <span class="tag">After Effects</span>
+          <span class="tag g">تايتلات</span>
+        </div>
+        <div class="s-arrow">→</div>
+      </div>
+      <div class="service-card reveal d1" data-tilt>
+        <div class="s-num">02 — Video Editing</div>
+        <div class="s-icon">▣</div>
+        <h3 class="s-title">مونتاج احترافي</h3>
+        <p class="s-desc">مونتاج بيبني إيقاع تحس بيه قبل ما تفهمه — كل قطع وكل ترانزيشن في مكانه الصح عشان الناس تفضل تتفرج لآخر ثانية</p>
+        <div class="s-tags">
+          <span class="tag">Color Grading</span>
+          <span class="tag">Sound Design</span>
+          <span class="tag g">Premiere Pro</span>
+        </div>
+        <div class="s-arrow">→</div>
+      </div>
+      <div class="service-card reveal d2" data-tilt>
+        <div class="s-num">03 — AI Video</div>
+        <div class="s-icon">⬡</div>
+        <h3 class="s-title">AI Video</h3>
+        <p class="s-desc">بنستخدم أحدث أدوات الذكاء الاصطناعي لإنتاج فيديوهات مستقبلية بأقل وقت وأعلى تأثير — المستقبل بدأ هنا</p>
+        <div class="s-tags">
+          <span class="tag">Runway ML</span>
+          <span class="tag">Kling AI</span>
+          <span class="tag g">Sora</span>
+        </div>
+        <div class="s-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-n" data-target="50">0</div>
+        <div class="stat-l">مشروع منجز</div>
+      </div>
+      <div class="stat reveal d1">
+        <div class="stat-n" data-target="30">0</div>
+        <div class="stat-l">عميل سعيد</div>
+      </div>
+      <div class="stat reveal d2">
+        <div class="stat-n" data-target="3">0</div>
+        <div class="stat-l">سنوات خبرة</div>
+      </div>
+      <div class="stat reveal d3">
+        <div class="stat-n" data-target="2">0</div>
+        <div class="stat-l">% الفارق دايمًا</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="process">
+  <div class="container">
+    <p class="section-label reveal">// How We Work</p>
+    <h2 class="section-title reveal d1">كيف بنضيف الـ 2%</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-dot">01</div>
+        <h4 class="step-t">نحلل المادة الخام</h4>
+        <p class="step-d">بنفهم فكرتك، جمهورك، وهدفك قبل ما نلمس أي أداة</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-dot">02</div>
+        <h4 class="step-t">نضيف الكربون</h4>
+        <p class="step-d">بنختار التركيبة الصح — مونتاج، موشن، أو AI — لمشروعك</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-dot">03</div>
+        <h4 class="step-t">نختبر الفولاذ</h4>
+        <p class="step-d">مراجعات دقيقة عشان كل تفصيلة تكون في مكانها الصح</p>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-dot">04</div>
+        <h4 class="step-t">نسلّم السلاح</h4>
+        <p class="step-d">محتوى جاهز للتأثير، متحسّن للمنصة، ومصمم يستحوذ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="cta">
+  <div class="container">
+    <p class="section-label reveal">// ابدأ دلوقتي</p>
+    <h2 class="cta-t reveal d1">
+      محتاج تحوّل<br>
+      مادتك الخام<br>
+      <span class="acc">لفولاذ؟</span>
+    </h2>
+    <p class="cta-s reveal d2">خلينا نضيف الـ 2% اللي بيفرّق</p>
+    <div class="reveal d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://wa.me/201000000000" class="btn-primary" target="_blank">ابدأ مشروعك على WhatsApp</a>
+      <a href="mailto:info@2cbon.com" class="btn-ghost">راسلنا بالإيميل</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fl">2CBON</span>
+  <span>© 2026 — كل الحقوق محفوظة</span>
+  <span style="font-family:'Space Grotesk',sans-serif;color:var(--gold-dim);">Adding 2% Always</span>
+</footer>
+
+<script>
+// --- CURSOR ---
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0, my=0, rx=0, ry=0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; 
+  my = e.clientY;
+  if(cur) {
+    cur.style.left = mx + 'px';
+    cur.style.top = my + 'px';
+  }
+});
+
+(function loop(){
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  if(ring) {
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+  }
+  requestAnimationFrame(loop);
+})();
+
+document.querySelectorAll('a, button, [data-tilt]').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if(cur) {
+      cur.style.transform = 'translate(-50%,-50%) scale(2.5)';
+      cur.style.background = 'transparent';
+      cur.style.border = '1px solid var(--gold)';
+    }
+    if(ring) ring.style.opacity = '0';
+  });
+  el.addEventListener('mouseleave', () => {
+    if(cur) {
+      cur.style.transform = 'translate(-50%,-50%) scale(1)';
+      cur.style.background = 'var(--gold)';
+      cur.style.border = 'none';
+    }
+    if(ring) ring.style.opacity = '0.4';
+  });
+});
+
+// --- NAV SCROLL ---
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if(navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// --- CANVAS PARTICLES (Optimized Performance) ---
+const canvas = document.getElementById('canvas-bg');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize(){ 
+    W = canvas.width = window.innerWidth; 
+    H = canvas.height = window.innerHeight; 
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const REPEL_R = 160, REPEL_F = 0.09, CONNECT_R = 140, MOUSE_LINE_R = 180;
+  const pts = Array.from({length: 60}, () => ({
+    x: Math.random() * window.innerWidth, 
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.4, 
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 1.4 + 0.5, 
+    o: Math.random() * 0.3 + 0.08
+  }));
+
+  let ripples = [];
+  window.addEventListener('click', e => {
+    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+    ripples.push({ x: e.clientX, y: e.clientY, r: 0, alpha: 0.7 });
+  });
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+
+    // 1. Batching Background Lines (BIG PERFORMANCE BOOST)
+    ctx.beginPath();
+    ctx.strokeStyle = "rgba(201, 168, 76, 0.04)";
+    ctx.lineWidth = 0.5;
+    for(let i = 0; i < pts.length; i++){
+      for(let j = i + 1; j < pts.length; j++){
+        const dx = pts[i].x - pts[j].x;
+        const dy = pts[i].y - pts[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if(d < CONNECT_R){
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+        }
+      }
+    }
+    ctx.stroke();
+
+    // 2. Interaction Lines with Mouse
+    pts.forEach(p => {
+      const dx = p.x - mx;
+      const dy = p.y - my;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if(d < MOUSE_LINE_R){
+        const t = 1 - d / MOUSE_LINE_R;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(201,168,76,${t * 0.4})`;
+        ctx.lineWidth = t * 1.5;
+        ctx.moveTo(mx, my);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+      }
+    });
+
+    // 3. Ripples
+    ripples = ripples.filter(rp => rp.r < 260);
+    ripples.forEach(rp => {
+      const a = rp.alpha * (1 - rp.r / 260);
+      ctx.beginPath();
+      ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(201,168,76,${a})`;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      rp.r += 5;
+    });
+
+    // 4. Update & Draw Particles
+    pts.forEach(p => {
+      const dx = p.x - mx;
+      const dy = p.y - my;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      
+      if(d < REPEL_R && d > 1){
+        const f = (1 - d / REPEL_R) * REPEL_F;
+        p.vx += (dx / d) * f;
+        p.vy += (dy / d) * f;
+      }
+      
+      ripples.forEach(rp => {
+        const rdx = p.x - rp.x;
+        const rdy = p.y - rp.y;
+        const rd = Math.sqrt(rdx*rdx + rdy*rdy);
+        const diff = Math.abs(rd - rp.r);
+        if(diff < 30 && rd > 1){
+          const push = (1 - diff / 30) * 0.6;
+          p.vx += (rdx / rd) * push;
+          p.vy += (rdy / rd) * push;
+        }
+      });
+
+      const spd = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+      if(spd > 2) { p.vx = (p.vx / spd) * 2; p.vy = (p.vy / spd) * 2; }
+
+      const near = d < REPEL_R;
+      const boost = near ? (1 - d / REPEL_R) : 0;
+      const drawR = p.r + boost * 2;
+      const drawO = Math.min(p.o + boost * 0.5, 1);
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, drawR, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(201,168,76,${drawO})`;
+      ctx.fill();
+
+      p.x += p.vx; 
+      p.y += p.vy;
+
+      if(p.x < 0) { p.x = 0; p.vx *= -1; }
+      if(p.x > W) { p.x = W; p.vx *= -1; }
+      if(p.y < 0) { p.y = 0; p.vy *= -1; }
+      if(p.y > H) { p.y = H; p.vy *= -1; }
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// --- SCROLL REVEAL ---
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => ro.observe(el));
+
+// --- CARBON BAR ---
+let carbonDone = false;
+const cbFill = document.getElementById('cb-fill');
+const cbNum = document.getElementById('cb-num');
+const cbStatus = document.getElementById('cb-status');
+const cbWrap = document.querySelector('.carbon-wrap');
+const steps = [
+  { pct: 0, label: 'Analyzing raw material...', delay: 0 },
+  { pct: 28, label: 'Detecting weak points...', delay: 700 },
+  { pct: 62, label: 'Injecting carbon formula...', delay: 1700 },
+  { pct: 100, label: '✓ Steel unlocked — ready to dominate screens', delay: 3100 }
+];
+
+function animNum(el, from, to, dur){
+  const t0 = performance.now();
+  (function tick(now){
+    const p = Math.min((now - t0) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    if(el) el.innerHTML = Math.round(from + (to - from) * ease) + '<span>%</span>';
+    if(p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+
+function runCarbon(){
+  if(carbonDone) return;
+  carbonDone = true;
+  if(cbWrap) cbWrap.classList.add('lit');
+  steps.forEach(({ pct, label, delay }) => {
+    setTimeout(() => {
+      const prev = parseInt(cbNum ? cbNum.textContent : 0) || 0;
+      if(cbFill) cbFill.style.width = pct + '%';
+      if(cbStatus) cbStatus.textContent = label;
+      animNum(cbNum, prev, pct, 1000);
+      if(pct === 100 && cbStatus && cbFill){
+        setTimeout(() => {
+          cbStatus.classList.add('done');
+          cbFill.style.boxShadow = '0 0 18px rgba(201,168,76,.5)';
+        }, 1100);
+      }
+    }, delay);
+  });
+}
+
+const carbonSec = document.getElementById('carbon-section');
+if(carbonSec) {
+  const co = new IntersectionObserver(e => { if(e[0].isIntersecting) runCarbon(); }, { threshold: 0.3 });
+  co.observe(carbonSec);
+}
+
+// --- COUNTERS ---
+const cnts = document.querySelectorAll('.stat-n[data-target]');
+const cobs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.getAttribute('data-target');
+    const t0 = performance.now();
+    (function tick(now){
+      const p = Math.min((now - t0) / 1600, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target) + (p === 1 ? '+' : '');
+      if(p < 1) requestAnimationFrame(tick);
+    })(t0);
+    cobs.unobserve(el);
+  });
+}, { threshold: 0.4 });
+cnts.forEach(el => cobs.observe(el));
+
+// --- 3D TILT ---
+document.querySelectorAll('[data-tilt]').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateZ(5px)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+</script>
+</body>
+</html>

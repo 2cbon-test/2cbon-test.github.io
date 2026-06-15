@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) - تم دمج كود التتبع الخاص بك هنا -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRR24T4XSK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZRR24T4XSK');
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2Cbon — نضيف الـ 2% الفارق</title>
@@ -63,7 +53,7 @@ nav.scrolled{background:rgba(6,6,6,.9);backdrop-filter:blur(20px);padding:1rem 3
 .glitch::after{color:var(--gold);clip-path:polygon(0 60%,100% 60%,100% 78%,0 78%);animation:glitch2 5s infinite;}
 .hero-sub{font-size:clamp(.95rem,2vw,1.15rem);color:var(--muted2);max-width:520px;margin:0 auto 2.5rem;line-height:1.8;opacity:0;animation:fadeUp .8s .6s forwards;}
 .hero-actions{display:flex;gap:1rem;justify-content:center;opacity:0;animation:fadeUp .8s .8s forwards;}
-.btn-primary{background:var(--gold);color:var(--bg);padding:.85rem 2rem;border:none;font-family:'Cairo',sans-serif;font-size:.95rem;font-weight:700;cursor:none;text-decoration:none;display:inline-block;transition:all .3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.btn-primary{background:var(--gold);color:var(--bg);padding:.85rem 2rem;border:none;font-family:'Cairo',sans-serif;font-size:.95rem;font-weight:700;cursor:none;text-decoration:none;display:inline-block;transition:all .3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
 .btn-ghost{background:transparent;color:var(--text);padding:.85rem 2rem;border:1px solid var(--border);font-family:'Cairo',sans-serif;font-size:.95rem;cursor:none;text-decoration:none;display:inline-block;transition:all .3s;font-weight:600;}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
@@ -80,7 +70,7 @@ section{padding:7rem 3rem;position:relative;}
 .carbon-wrap.lit::before{opacity:1;}
 .cb-label{font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.2em;color:var(--muted2);text-transform:uppercase;margin-bottom:1.2rem;}
 .cb-track{height:3px;background:var(--border);position:relative;overflow:visible;}
-.cb-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));transition:width 2s cubic-bezier(.4,0,.2,1);position:relative;}
+.cb-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));transition:width 1.2s cubic-bezier(.4,0,.2,1);position:relative;}
 .cb-fill::after{content:'';position:absolute;right:-1px;top:-5px;width:2px;height:13px;background:var(--gold-light);box-shadow:0 0 12px var(--gold);transition:opacity .3s;}
 .cb-num{font-family:'Space Grotesk',sans-serif;font-size:4.5rem;font-weight:700;color:var(--gold);line-height:1;margin:1.5rem 0 0;}
 .cb-num span{font-size:1.2rem;color:var(--muted2);font-weight:400;}
@@ -88,7 +78,7 @@ section{padding:7rem 3rem;position:relative;}
 .cb-status.done{color:var(--gold);}
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
 .ba-box{padding:1.2rem;border:1px solid var(--border);}
-.ba-box.after {border-color:var(--gold-dim); transition: border-color 0.6s ease;}
+.ba-box.after{border-color:var(--gold-dim);}
 .ba-tag{font-size:.65rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem;}
 .ba-val{font-size:1.05rem;font-weight:700;}
 .ba-box.after .ba-val{color:var(--gold);}
@@ -143,7 +133,7 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 .ai-trigger-btn:hover { background:var(--gold);color:var(--bg);transform:translateY(-3px);box-shadow:0 15px 35px rgba(201,168,76,.2); }
 .ai-trigger-btn span { font-size:1.1rem; animation: pulse 1.5s infinite; }
 
-/* --- نظام الأفاتار المتفاعل --- */
+/* --- 🛸 نظام الأفاتار الطائر والمتحرك والمتفاعل --- */
 .avatar-container {
   position: fixed;
   bottom: 6.5rem;
@@ -155,40 +145,42 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
   align-items: center;
   justify-content: center;
   pointer-events: auto;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
   animation: avatarFloat 4s ease-in-out infinite;
 }
 .cyber-avatar {
   width: 60px;
   height: 60px;
   background: radial-gradient(circle at 35% 35%, var(--surface2), var(--bg));
-  border: 2px solid var(--border);
+  border: 2px solid var(--gold);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.2), inset 0 0 10px rgba(201, 168, 76, 0.1);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 6px;
+  transition: all 0.4s ease;
   overflow: hidden;
 }
 .avatar-eyes { display: flex; gap: 12px; transition: transform 0.3s ease; }
 .avatar-eye {
   width: 6px;
-  height: 2px;
-  background: var(--gold-dim);
-  border-radius: 2px;
-  box-shadow: 0 0 2px rgba(201, 168, 76, 0.2);
-  transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1); 
+  height: 8px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold);
+  transition: all 0.2s ease;
+  animation: avatarBlink 4s infinite;
 }
 .avatar-mouth {
-  width: 10px;
-  height: 2px;
-  background: var(--gold-dim);
+  width: 14px;
+  height: 3px;
+  background: var(--gold);
   border-radius: 2px;
-  transition: all 0.8s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 5px rgba(201, 168, 76, 0.5);
 }
 .avatar-waves {
   position: absolute;
@@ -202,25 +194,14 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 }
 
 .avatar-container:hover .cyber-avatar {
-  border-color: var(--gold);
-  box-shadow: 0 0 25px rgba(201, 168, 76, 0.3);
-  transform: scale(1.08);
+  border-color: var(--gold-light);
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+  transform: scale(1.05);
 }
-.avatar-container:hover .avatar-eye {
-  height: 7px;
-  border-radius: 50%;
-  background: var(--gold-light);
-  box-shadow: 0 0 10px var(--gold);
-}
-.avatar-container:hover .avatar-mouth {
-  width: 16px;
-  height: 4px;
-  background: var(--gold);
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 0 4px rgba(201, 168, 76, 0.4);
-}
+.avatar-container:hover .avatar-eye { height: 6px; background: #fff; }
+.avatar-container:hover .avatar-mouth { width: 18px; height: 5px; border-radius: 0 0 10px 10px; }
 
-.avatar-container.talking .avatar-eye { height: 6px; background: #fff; box-shadow: 0 0 12px #fff; }
+.avatar-container.talking .avatar-eye { height: 6px; animation: none; }
 .avatar-container.talking .avatar-mouth {
   animation: avatarSpeak 0.35s ease-in-out infinite alternate;
   background: var(--gold-light);
@@ -228,21 +209,23 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
 }
 .avatar-container.talking .avatar-waves { opacity: 1; animation: avatarWavePulse 1.2s linear infinite; }
 
-@keyframes avatarFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(1deg); } }
+@keyframes avatarFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(3deg); } }
+@keyframes avatarBlink { 0%, 45%, 47%, 100% { transform: scaleY(1); } 46% { transform: scaleY(0.1); } }
 @keyframes avatarSpeak { 0% { height: 2px; width: 12px; border-radius: 2px; } 100% { height: 12px; width: 12px; border-radius: 50%; } }
 @keyframes avatarWavePulse { 0% { transform: scale(0.8); opacity: 0.8; } 100% { transform: scale(1.4); opacity: 0; } }
 
+/* --- 📋 تعديل وتأمين ظهور ماوس المتصفح فوق الفورم وبوكس البيانات --- */
 .lead-modal-overlay {
   position:fixed;inset:0;background:rgba(6,6,6,.85);backdrop-filter:blur(15px);
   z-index:10000;display:flex;align-items:center;justify-content:center;
   opacity:0;pointer-events:none;transition:opacity .4s ease;
-  cursor: default;
+  cursor: default; /* إرجاع الماوس السهم الطبيعي عند الفتح */
 }
 .lead-modal-overlay.active { opacity:1; pointer-events:auto; }
 .lead-modal {
   background:var(--surface);border:1px solid var(--border);padding:3rem 2.5rem;
   max-width:440px;width:100%;position:relative;text-align:right;
-  cursor: default;
+  cursor: default; /* التأكيد على السهم الطبيعي فوق البوكس */
 }
 .lead-modal::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold); }
 .lead-close { position:absolute;top:1.5rem;left:1.5rem;background:none;border:none;color:var(--muted2);font-size:1.2rem;cursor: pointer; }
@@ -255,17 +238,17 @@ footer .fl{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--go
   width:100%;background:var(--surface2);border:1px solid var(--border);
   padding:.85rem 1rem;color:var(--text);font-family:'Cairo',sans-serif;font-size:.9rem;
   transition:all .3s;outline:none;
-  cursor: text;
+  cursor: text; /* تشغيل ماوس الكتابة الاحترافي (I-beam) جوه الانبوت */
 }
 .form-group input:focus { border-color:var(--gold); background:var(--bg); }
 .lead-submit { width:100%; margin-top:1rem; cursor: pointer; }
 
 @keyframes pulse { 0%,100%{opacity:.6;} 50%{opacity:1;} }
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
 @keyframes glitch1{0%,88%,100%{transform:none;opacity:0;}90%{transform:translateX(-4px);opacity:.9;}92%{transform:translateX(4px);opacity:0;}95%{transform:translateX(-2px);opacity:.6;}}
 @keyframes glitch2{0%,86%,100%{transform:none;opacity:0;}88%{transform:translateX(4px);opacity:.8;}90%{transform:translateX(-4px);opacity:0;}93%{transform:translateX(2px);opacity:.5;}}
 @keyframes scrollPulse{0%,100%{opacity:.5;transform:scaleY(.8);}50%{opacity:1;transform:scaleY(1);}}
-
 @media(max-width:768px){
   nav{padding:1rem 1.5rem;}nav.scrolled{padding:.8rem 1.5rem;}
   .nav-links,.nav-cta{display:none;}
@@ -532,6 +515,7 @@ let isInsideModal = false;
 document.addEventListener('mousemove', e => {
   mx = e.clientX; 
   my = e.clientY;
+  // تحديث مكان الماوس السحري فقط لو كنا بره بوكس البيانات
   if(cur && !isInsideModal) {
     cur.style.left = mx + 'px';
     cur.style.top = my + 'px';
@@ -553,7 +537,7 @@ document.addEventListener('mousemove', e => {
 function setupCursorEvents() {
   document.querySelectorAll('a, button, [data-tilt], .lead-close, .avatar-container').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      if(isInsideModal) return; 
+      if(isInsideModal) return; // تعطيل التأثيرات لو الماوس جوه البوكس
       if(cur) {
         cur.style.transform = 'translate(-50%,-50%) scale(2.5)';
         cur.style.background = 'transparent';
@@ -574,6 +558,7 @@ function setupCursorEvents() {
 }
 setupCursorEvents();
 
+// 💡 النظام الذكي: إخفاء الماوس السحري تماماً عند دخول بوكس البيانات ليعود ماوس المتصفح الطبيعي
 if (leadModalBox) {
   leadModalBox.addEventListener('mouseenter', () => {
     isInsideModal = true;
@@ -593,7 +578,7 @@ window.addEventListener('scroll', () => {
   if(navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// --- CANVAS MULTI-SHAPE PARTICLES ---
+// --- CANVAS MULTI-SHAPE PARTICLES (Ultra Optimized) ---
 const canvas = document.getElementById('canvas-bg');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -620,7 +605,7 @@ if (canvas) {
 
   let ripples = [];
   window.addEventListener('click', e => {
-    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.lead-modal') || e.target.closest('.avatar-container')) return;
+    if(e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.lead-modal') || e.target.closest('elevenlabs-convai') || e.target.closest('.avatar-container')) return;
     ripples.push({ x: e.clientX, y: e.clientY, r: 0, alpha: 0.7 });
   });
 
@@ -710,7 +695,7 @@ if (canvas) {
         ctx.arc(p.x, p.y, drawR, 0, Math.PI * 2);
         ctx.fill();
       } else if (p.shape === 'square') {
-        ctx.rect(p.x - drawR, p.y - drawR, drawR * 2, drawR * 2);
+        ctx.rect(p.x - drawR, p.y - drawR, drawR * 1.8, drawR * 1.8);
         ctx.fill();
       } else if (p.shape === 'triangle') {
         ctx.moveTo(p.x, p.y - drawR);
@@ -725,11 +710,13 @@ if (canvas) {
       }
       ctx.restore();
 
-      p.x += p.vx;
+      p.x += p.vx; 
       p.y += p.vy;
 
-      if(p.x < 0 || p.x > W) p.vx *= -1;
-      if(p.y < 0 || p.y > H) p.vy *= -1;
+      if(p.x < 0) { p.x = 0; p.vx *= -1; }
+      if(p.x > W) { p.x = W; p.vx *= -1; }
+      if(p.y < 0) { p.y = 0; p.vy *= -1; }
+      if(p.y > H) { p.y = H; p.vy *= -1; }
     });
 
     requestAnimationFrame(draw);
@@ -737,112 +724,155 @@ if (canvas) {
   draw();
 }
 
-// --- REVEAL SYSTEM & CARBON LOADING SYSTEM ---
-const revealElements = document.querySelectorAll('.reveal');
-let carbonAnimated = false;
+// --- SCROLL REVEAL ---
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => ro.observe(el));
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      
-      if(entry.target.id === 'carbon-section' && !carbonAnimated) {
-        carbonAnimated = true;
-        animateCarbonWrap();
-      }
-    }
-  });
-}, { threshold: 0.15 });
+// --- CARBON BAR ---
+let carbonDone = false;
+const cbFill = document.getElementById('cb-fill');
+const cbNum = document.getElementById('cb-num');
+const cbStatus = document.getElementById('cb-status');
+const cbWrap = document.querySelector('.carbon-wrap');
+const steps = [
+  { pct: 0, label: 'Analyzing raw material...', delay: 0 },
+  { pct: 28, label: 'Detecting weak points...', delay: 700 },
+  { pct: 62, label: 'Injecting carbon formula...', delay: 1700 },
+  { pct: 100, label: '✓ Steel unlocked — ready to dominate screens', delay: 3100 }
+];
 
-revealElements.forEach(el => revealObserver.observe(el));
-
-function animateCarbonWrap() {
-  const fill = document.getElementById('cb-fill');
-  const num = document.getElementById('cb-num');
-  const status = document.getElementById('cb-status');
-  const wrap = document.getElementById('carbon-section');
-  
-  if(!fill || !num) return;
-  wrap.classList.add('lit');
-  fill.style.width = '100%';
-  
-  let currentVal = 0;
-  const interval = setInterval(() => {
-    currentVal += 0.1;
-    if(currentVal >= 2.0) {
-      currentVal = 2.0;
-      clearInterval(interval);
-      if(status) {
-        status.innerText = "فولاذ لا يُقهر جاهز! ⚡";
-        status.classList.add('done');
-      }
-      const afterBox = document.querySelector('.ba-box.after');
-      if(afterBox) afterBox.style.borderColor = 'var(--gold)';
-    } else {
-      if(status) status.innerText = "جاري حقن الـ 2% كربون وموازنة الإيقاع...";
-    }
-    num.innerHTML = currentVal.toFixed(1) + '<span>%</span>';
-  }, 75);
+function animNum(el, from, to, dur){
+  const t0 = performance.now();
+  (function tick(now){
+    const p = Math.min((now - t0) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    if(el) el.innerHTML = Math.round(from + (to - from) * ease) + '<span>%</span>';
+    if(p < 1) requestAnimationFrame(tick);
+  })(t0);
 }
 
-// --- STATS COUNTER SYSTEM ---
-const statNumbers = document.querySelectorAll('.stat-n');
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting && !entry.target.classList.contains('counted')) {
-      entry.target.classList.add('counted');
-      const target = parseInt(entry.target.getAttribute('data-target'));
-      let current = 0;
-      const step = target / 40;
-      
-      const countUp = () => {
-        current += step;
-        if(current < target) {
-          entry.target.innerText = Math.ceil(current);
-          setTimeout(countUp, 25);
-        } else {
-          entry.target.innerText = target;
-        }
-      };
-      countUp();
-    }
+function runCarbon(){
+  if(carbonDone) return;
+  carbonDone = true;
+  if(cbWrap) cbWrap.classList.add('lit');
+  steps.forEach(({ pct, label, delay }) => {
+    setTimeout(() => {
+      const prev = parseInt(cbNum ? cbNum.textContent : 0) || 0;
+      if(cbFill) cbFill.style.width = pct + '%';
+      if(cbStatus) cbStatus.textContent = label;
+      animNum(cbNum, prev, pct, 1000);
+      if(pct === 100 && cbStatus && cbFill){
+        setTimeout(() => {
+          cbStatus.classList.add('done');
+          cbFill.style.boxShadow = '0 0 18px rgba(201,168,76,.5)';
+        }, 1100);
+      }
+    }, delay);
   });
-}, { threshold: 0.6 });
-statNumbers.forEach(n => statsObserver.observe(n));
+}
 
-// --- LEAD MODAL & INTERACTIVE AVATAR SYSTEM ---
+const carbonSec = document.getElementById('carbon-section');
+if(carbonSec) {
+  const co = new IntersectionObserver(e => { if(e[0].isIntersecting) runCarbon(); }, { threshold: 0.3 });
+  co.observe(carbonSec);
+}
+
+// --- COUNTERS ---
+const cnts = document.querySelectorAll('.stat-n[data-target]');
+const cobs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.getAttribute('data-target');
+    const t0 = performance.now();
+    (function tick(now){
+      const p = Math.min((now - t0) / 1600, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target) + (p === 1 ? '+' : '');
+      if(p < 1) requestAnimationFrame(tick);
+    })(t0);
+    cobs.unobserve(el);
+  });
+}, { threshold: 0.4 });
+cnts.forEach(el => cobs.observe(el));
+
+// --- 3D TILT ---
+document.querySelectorAll('[data-tilt]').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateZ(5px)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+// --- ELEVENLABS LEAD-GATE LOGIC WITH AVATAR INTERACTION ---
 const aiTrigger = document.getElementById('aiTrigger');
+const flyingAvatar = document.getElementById('flyingAvatar');
 const leadModal = document.getElementById('leadModal');
 const closeModal = document.getElementById('closeModal');
 const leadForm = document.getElementById('leadForm');
-const flyingAvatar = document.getElementById('flyingAvatar');
 
-if(aiTrigger && leadModal && closeModal) {
-  aiTrigger.addEventListener('click', () => {
-    leadModal.classList.add('active');
-  });
-  closeModal.addEventListener('click', () => {
-    leadModal.classList.remove('active');
-  });
-  leadModal.addEventListener('click', (e) => {
-    if(e.target === leadModal) leadModal.classList.remove('active');
-  });
+aiTrigger.addEventListener('click', openFormGate);
+flyingAvatar.addEventListener('click', openFormGate);
+
+function openFormGate() {
+  leadModal.classList.add('active');
 }
 
-if(leadForm) {
-  leadForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    leadModal.classList.remove('active');
+closeModal.addEventListener('click', () => {
+  leadModal.classList.remove('active');
+});
+
+leadForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const name = document.getElementById('clientName').value;
+  const phone = document.getElementById('clientPhone').value;
+  const company = document.getElementById('clientCompany').value;
+  
+  console.log("New Lead Captured:", { name, phone, company });
+
+  leadModal.classList.remove('active');
+  aiTrigger.style.display = 'none';
+
+  flyingAvatar.classList.add('talking');
+
+  const el = document.createElement('elevenlabs-convai');
+  el.setAttribute('agent-id', 'agent_7701kv0rzr4degcspwkke552865a');
+  document.body.appendChild(el);
+  
+  setTimeout(() => { setupCursorEvents(); }, 600);
+});
+
+// ميكانيزم تفاعل وانحراف الأفاتار مع اقتراب الماوس
+if (window.innerWidth > 768) {
+  document.addEventListener('mousemove', (e) => {
+    const avatarRect = flyingAvatar.getBoundingClientRect();
+    const avatarX = avatarRect.left + avatarRect.width / 2;
+    const avatarY = avatarRect.top + avatarRect.height / 2;
     
-    if(flyingAvatar) {
-      flyingAvatar.classList.add('talking');
-      setTimeout(() => {
-        flyingAvatar.classList.remove('talking');
-        alert('تم حفظ بياناتك بنجاح! جاري ربطك بالمساعد الصوتي لـ 2Cbon...');
-      }, 4500);
+    const diffX = e.clientX - avatarX;
+    const diffY = e.clientY - avatarY;
+    const distance = Math.sqrt(diffX * diffX + diffY * diffY);
+    
+    if (distance < 120) {
+      const force = (120 - distance) / 120;
+      const moveX = -(diffX / distance) * force * 25;
+      const moveY = -(diffY / distance) * force * 25;
+      flyingAvatar.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    } else {
+      flyingAvatar.style.transform = `translate(0, 0)`;
     }
   });
 }
 </script>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
 </body>
 </html>
